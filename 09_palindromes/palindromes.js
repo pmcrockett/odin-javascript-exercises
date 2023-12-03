@@ -1,9 +1,8 @@
 const palindromes = function (_str) {
     let noPunct = _str.toLowerCase().replaceAll(/[^a-z]/ig, "");
-    for (let i = 0; i < Math.floor(noPunct.length / 2) - 1; i++) {
-        if (noPunct[i] != noPunct[noPunct.length - 1 - i]) return false;
-    }
-    return true;
+    noPunct = [...noPunct];
+    return noPunct.every((_char, _idx, _arr) => 
+        _char === _arr[_arr.length - 1 - _idx]);
 };
 
 // Do not edit below this line

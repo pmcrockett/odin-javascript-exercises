@@ -1,13 +1,14 @@
 const fibonacci = function(_num) {
     if (_num < 1) return "OOPS";
-    let returnNum = 1;
-    let prevNum = 0;
-    for (let i = 1; i < _num; i++) {
-        let newPrevNum = returnNum;
-        returnNum += prevNum;
-        prevNum = newPrevNum;
+    let fibArr = [];
+    for (let i = 0; i < _num; i++) {
+        let val = 1;
+        if (i >= 2) {
+            val = fibArr[i - 1] + fibArr[i - 2];
+        }
+        fibArr.push(val);
     }
-    return returnNum;
+    return fibArr[fibArr.length - 1];
 };
 
 // Do not edit below this line
